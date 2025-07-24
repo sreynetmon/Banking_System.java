@@ -1,15 +1,25 @@
 package kh.edu.net.controller;
 
-import kh.edu.net.dao.CustomerDao;
-import kh.edu.net.dao.impl.CustomerDaoImpl;
+import kh.edu.net.dto.CustomerResponse;
+import kh.edu.net.model.Customer;
+import kh.edu.net.service.CustomerService;
+import kh.edu.net.service.impl.CustomerServiceImpl;
+
+import java.util.List;
 
 public class CustomerController {
 
-//
-    private final CustomerDao customerDao;
-    public Object getCustomer;
+    private final CustomerService customerService;
 
     public CustomerController(){
-        customerDao = new CustomerDaoImpl();
+        customerService = new CustomerServiceImpl();
+    }
+
+    public List<CustomerResponse> getAllCustomers(){
+        return customerService.getAllCustomers();
+    }
+
+    public CustomerResponse findCustomerByEmail (String email){
+        return customerService.findCustomerByEmail(email);
     }
 }
