@@ -15,14 +15,14 @@ public class CustomerRepository {
         Customer customer1 = new Customer();
         Customer customer2 = new Customer();
 
-        customer1.setId(UUID.randomUUID());
+        customer1.setId(1);
         customer1.setFullName("Sreynet");
         customer1.setGender("F");
         customer1.setEmail("sreynet24@gmail.com");
         customer1.setPhone("087537655");
         customer1.setDeleted(false);
 
-        customer2.setId(UUID.randomUUID());
+        customer2.setId(2);
         customer2.setFullName("Mana");
         customer2.setGender("F");
         customer2.setEmail("nana4@gmail.com");

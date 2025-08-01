@@ -7,7 +7,7 @@ import kh.edu.net.service.CustomerService;
 
 import java.util.List;
 
-public class CustomerServiceImpl implements CustomerService {
+public abstract class CustomerServiceImpl implements CustomerService {
 //    1.define object
     private final CustomerRepository customerRepository;
 
@@ -55,7 +55,22 @@ public class CustomerServiceImpl implements CustomerService {
                 foundCustomer.getGender(),
                 foundCustomer.getEmail()
         );
-
+        return customerResponse;
+    }
+    @Override
+    public CustomerResponse findCustomerById(int id){
+        //logic
+        List<Customer> customers = customerRepository.getCustomerData();
+        Customer foundCustomer =  customers.stream()
+                .filter(customer -> customer.getEmail().equals(id))
+                .findFirst()
+                .orElseThrow(()-> new RuntimeException("Customer not found"));
+        //Map data
+        CustomerResponse customerResponse = new CustomerResponse(
+                foundCustomer.getFullName(),
+                foundCustomer.getGender(),
+                foundCustomer.getEmail()
+        );
         return customerResponse;
     }
 }

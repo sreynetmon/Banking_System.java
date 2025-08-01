@@ -3,12 +3,8 @@ package kh.edu.net.model;
 //Model store data application
 //POJO CLASS stand for Plain Old Java project  (Getter, Setter, Constructor)
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 public class Customer {
-    private UUID uuid;
+    private int id;
     private String fullName;
     private String gender;
     private String email;
@@ -17,8 +13,8 @@ public class Customer {
 
     public Customer(){};
 
-    public Customer(UUID uuid, String fullName, String gender, String email, String phone, Boolean isDeleted) {
-        this.uuid = uuid;
+    public Customer (int id, String fullName, String gender, String email, String phone, Boolean isDeleted) {
+        this.id = id;
         this.fullName = fullName;
         this.gender = gender;
         this.email = email;
@@ -26,17 +22,19 @@ public class Customer {
         this.isDeleted = isDeleted;
     }
 
+
+
 //    public Customer (){
 //        List<Customer> customers = new ArrayList<>();
 //        customers.add(new Customer());
 //    }
 
 
-    public UUID getUuid() {
-        return uuid;
+    public int getId() {
+        return id;
     }
-    public void setId(UUID uuid){
-        this.uuid = uuid;
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getFullName() {

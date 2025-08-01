@@ -12,4 +12,7 @@ public interface CustomerService {
     CustomerResponse findCustomerByEmail(String email);
 
 
+    CustomerResponse findCustomerByID(int id);
+
+    CustomerResponse findCustomerById(int id);
 }

@@ -6,6 +6,7 @@ import kh.edu.net.model.Customer;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class CustomerView {
     private final CustomerController customerController;
@@ -18,6 +19,7 @@ public class CustomerView {
         System.out.println("=".repeat(30));
         System.out.println("[1] View All Customers");
         System.out.println("[2] Search Customer by Email");
+        System.out.println("[3] Search Customer by ID");
         System.out.println("=".repeat(30));
 
         System.out.print("Enter Option: ");
@@ -37,7 +39,16 @@ public class CustomerView {
                 } catch (RuntimeException e) {
                     System.out.println(e.getMessage());
                 }
-
+            }
+            case 3 -> {
+                System.out.print("Enter ID: ");
+                int id = new Scanner(System.in).nextInt();
+                try{
+                    CustomerResponse customerId = customerController.findCustomerByID(id);
+                    System.out.println(customerId);
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }

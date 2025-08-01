@@ -12,7 +12,12 @@ public class CustomerController {
     private final CustomerService customerService;
 
     public CustomerController(){
-        customerService = new CustomerServiceImpl();
+        customerService = new CustomerServiceImpl() {
+            @Override
+            public CustomerResponse findCustomerByID(int id) {
+                return null;
+            }
+        };
     }
 
     public List<CustomerResponse> getAllCustomers(){
@@ -21,5 +26,9 @@ public class CustomerController {
 
     public CustomerResponse findCustomerByEmail (String email){
         return customerService.findCustomerByEmail(email);
+    }
+
+    public CustomerResponse findCustomerByID (int id){
+        return customerService.findCustomerByID(id);
     }
 }
