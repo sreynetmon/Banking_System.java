@@ -11,9 +11,8 @@ public class Customer {
     private String phone;
     private Boolean isDeleted;
 
-    public Customer(){};
 
-    public Customer (int id, String fullName, String gender, String email, String phone, Boolean isDeleted) {
+    public Customer (int id, String fullName, String gender, String email, Boolean isDeleted) {
         this.id = id;
         this.fullName = fullName;
         this.gender = gender;
@@ -21,7 +20,6 @@ public class Customer {
         this.phone = phone;
         this.isDeleted = isDeleted;
     }
-
 
 
 //    public Customer (){
